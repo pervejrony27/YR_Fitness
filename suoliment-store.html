@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YR Fitness Supplement Store">
+    <meta name="keywords" content="supplements, fitness, health">
+    <meta name="author" content="YR Fitness">
+    <title>YR Fitness | Supplement Store</title>
+    <link rel="icon" type="image/x-icon" href="./logos/sparta-logo-red.png">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            width: 50px;
+        }
+
+        .navbar-menu {
+            display: flex;
+        }
+
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        /* Product Section Styles */
+        .product-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #e74c3c;
+        }
+
+        .add-to-cart {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-wrapper {
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .navbar-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-card {
+                width: 90%;
+            }
+
+            .footer-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Additional Styles */
+        .copyright {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Header Navbar Section -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
+      <a href="index.html"><h1>YR <span>Fitness</span></h1></a>
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="news.html" class="navbar-link underline">News</a>
+        <a href="services.html" class="navbar-link">Services</a>
+        <a href=" group-programs.html" class="navbar-link">Group Programs</a>
+        <a href="membership.html" class="navbar-link">Memberships</a>
+        <a href="about-us.html" class="navbar-link">About Us</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
+        <button class="login-btn">Login</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <section class="product-section">
+      <h2 class="section-title">Our Supplements</h2>
+      <div class="product-container">
+        <article class="product-card">
+          <img src="./images/protein-powder.jpg" alt="Protein Powder" class="product-img">
+          <h3 class="product-name">Whey Protein Powder</h3>
+          <p class="product-price">$29.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </article>
+        <article class="product-card">
+          <img src="./images/multivitamins.jpg" alt="Multivitamins" class="product-img">
+          <h3 class="product-name">Daily Multivitamins</h3>
+          <p class="product-price">$19.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </article>
+        <article class="product-card">
+          <img src="./images/fish-oil.jpg" alt="Fish Oil" class="product-img">
+          <h3 class="product-name">Omega-3 Fish Oil</h3>
+          <p class="product-price">$24.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </article>
+        <article class="product-card">
+          <img src="./images/bcaa.jpg" alt="BCAA" class="product-img">
+          <h3 class="product-name">BCAA Powder</h3>
+          <p class="product-price">$22.99</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-desc">
+        <h1>
+          <span style="color: white;">YR</span>
+          <span style="color: rgb(255, 38, 0);">FITNESS</span>
+        </h1>
+        <p>Empowering your fitness journey with state-of-the-art equipment, expert coaching, and a supportive environment to achieve your health goals.</p>
+        <p><i class="fa-solid fa-location-dot footer-icon"></i> Back of New Market, Khandirpar, Cumilla</p>
+        <p><i class="fa-solid fa-envelope footer-icon"></i> <a href="mailto:yrfitness@gmail.com" style="color: white; text-decoration: none;">yrfitness@gmail.com</a></p>
+      </div>
+      <div class="footer-owner" style="flex: 1; min-width: 300px; text-align: center;">
+        <h2 style="color: orange; font-size: 20px;">FOUNDER</h2>
+        <p>Pervej and Yeasin, the dynamic founders of YR Fitness, combined their shared passion for health and innovation to create a fitness hub like no other. With a focus on community and cutting-edge techniques, YR Fitness stands as a testament to their vision of empowering individuals to transform their lives through fitness</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    <p>Designed And Developed By YR Group</p>
+  </div>
+
+  <script src="./js/mobile-menu.js"></script>
+  <script src="./js/user-sign-in.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script defer src="./js/animation.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Observer.min.js"></script>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/MotionPathPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EaselPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/PixiPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CustomEase.min.js"></script>
+</body>
+</html> 

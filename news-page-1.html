@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="News Page">
+	<meta name="keywords" content="news">
+	<meta name="author" content="Nikola Štefančić">
+  <title>EnVizion Gym</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="./styles/general.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/news-page.css">
+
+  <link rel="icon" type="image/x-icon" href="./logos/sparta-logo-red.png">
+
+</head>
+<body>
+  
+  <!-- Header Navbar Section -->
+
+  <header>
+
+    <nav class="navbar">
+
+      <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
+      <a href="index.html"><h1>En<span class="logo-animate">Vizion</span> Gym</h1></a>
+
+      <div class="navbar-toggle" id="mobile-menu">
+
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+
+      </div>
+
+      <div class="navbar-menu">
+
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="news.html" class="navbar-link underline">News</a>
+        <a href="services.html" class="navbar-link">Services</a>
+        <a href="group-programs.html" class="navbar-link ">Group Programs</a>
+        <a href="membership.html" class="navbar-link ">Memberships</a>
+        <a href="about-us.html" class="navbar-link">About Us</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
+
+
+        <a href="login.html"><button class="login-btn">
+          Login
+          <div class="tooltip">
+            <p class="margin">Don't Have an Account?</p>
+            <p>Sign Up</p>
+          </div>
+        </button></a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  
+
+  <main>
+
+    <section class="hero-background-container">
+
+      <div class="news-title-wrapper">
+
+        <h3 class="topline cursor-def">November 31, 2024</h3>
+        <h1 class="news-title cursor-def">Please note that YR Fitness will be closed</h1>
+
+      </div>
+
+      <div>
+
+        <article class="article-text">
+          <p>
+          Please note that YR Fitness will be closed for cleaning on November 31st to ensure a safe and hygienic environment for all our members. We appreciate your understanding and encourage you to plan your workouts accordingly. Regular cleaning is essential for maintaining the quality of our facilities, and we look forward to welcoming you back to YR Fitness refreshed and ready to achieve your fitness goals. In the meantime, consider exploring alternative workout options or outdoor activities to keep your routine active. Thank you for being a valued member of our community!
+          </p>
+
+        </article>
+
+        <br>
+
+        <a href="./news.html"><button class="return-btn">Go Back</button></a>
+      
+
+    </section>
+
+  </main>
+
+    <!-- Footer Section -->
+
+    <footer class="footer" style="background-color: black; color: white; padding: 40px 20px;">
+      <div class="footer-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+    
+        <!-- Gym Description Section (Left Side) -->
+        <div class="footer-desc" style="flex: 1; min-width: 300px; text-align: center;">
+          <h1 style="font-size: 24px;">
+            <span style="color: white;">YR</span>
+            <span style="color: rgb(255, 38, 0);">FITNESS</span>
+          </h1>
+          <p style="margin: 10px 0;">Empowering your fitness journey with state-of-the-art equipment, expert coaching, and a supportive environment to achieve your health goals.</p>
+          <p><i class="fa-solid fa-location-dot footer-icon"></i> Back of New Market, Khandirpar, Cumilla</p>
+          <p><i class="fa-solid fa-envelope footer-icon"></i> <a href="mailto:yrfitness@gmail.com" style="color: white; text-decoration: none;">yrfitness@gmail.com</a></p>
+        </div>
+    
+        <!-- Empty Space (Middle Part) -->
+        <div class="footer-empty" style="flex: 1;"></div>
+    
+        <!-- Owner Section (Right Side) -->
+        <div class="footer-owner" style="flex: 1; min-width: 300px; text-align: center;">
+          <h2 style="color: orange; font-size: 20px;">FOUNDERS</h2>
+          <p>Pervej and Yeasin, the dynamic founders of YR Fitness, combined their shared passion for health and innovation to create a fitness hub like no other. With a focus on community and cutting-edge techniques, YR Fitness stands as a testament to their vision of empowering individuals to transform their lives through fitness</p>
+        </div>
+    
+      </div>
+    </footer>
+    
+
+  <div class="copyright">
+    <p>Designed And Developed By YR Group </p>
+  </div>
+
+</body>
+
+
+<script src="./js/mobile-menu.js"></script>
+
+<script defer src="./js/animation.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Observer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/MotionPathPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EaselPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/PixiPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CustomEase.min.js"></script>
+
+</html>
