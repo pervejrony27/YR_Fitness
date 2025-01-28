@@ -34,7 +34,7 @@
     <nav class="navbar">
 
       <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
-      <a href="index.html"><h1 class="logo-animate">Blaze <span>Fitness</span> </h1></a>
+      <a href="index.html"><h1 class="logo-animate">YR <span>Fitness</span> </h1></a>
 
       <div class="navbar-toggle" id="mobile-menu">
 
@@ -51,6 +51,7 @@
         <a href="services.html" class="navbar-link">Services</a>
         <a href="group-programs.html" class="navbar-link ">Group Programs</a>
         <a href="membership.html" class="navbar-link ">Memberships</a>
+        <a href="store.php" class="navbar-link">Store</a>
         <a href="about-us.html" class="navbar-link">About Us</a>
         <a href="contact.html" class="navbar-link">Contact</a>
 
@@ -78,27 +79,30 @@
 
     <div class="user-sign-flex">
       <section class="user-sign-in-container">
-
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close-circle"></ion-icon>
         </span>
-  
+    
         <div class="form-box login">
           <h2>Login</h2>
+          <!-- Update the form to use the POST method and point to login.php -->
           <form action="login.php" method="POST">
+    
             <div class="input-box">
-                <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" name="email" required>
-                <label for="email">Email</label>
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="email" name="email" required>
+              <label for="email">Email</label>
             </div>
-        
+    
             <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label for="password">Password</label>
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="password" name="password" required>
+              <label for="password">Password</label>
             </div>
-        
-        
+    
             <div class="remember-forget-pass">
               <label><input type="checkbox">Remember Me</label>
               <a href="#" class="forgot-pass">Forgot Password?</a>
@@ -109,42 +113,42 @@
             </div>
           </form>
         </div>
-  
-  
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close"></ion-icon>
         </span>
-  
+    
         <div class="form-box register">
           <h2>Register</h2>
           <form action="register.php" method="POST">
+    
             <div class="input-box">
-                <span class="icon"><ion-icon name="person"></ion-icon></span>
-                <input type="text" name="username" required>
-                <label for="username">Username</label>
+              <span class="icon"><ion-icon name="person"></ion-icon></span>
+              <input type="text" name="username" required>
+              <label for="text">Username</label>
             </div>
-        
+    
             <div class="input-box">
-                <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" name="email" required>
-                <label for="email">Email</label>
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="email" name="email" required>
+              <label for="email">Email</label>
             </div>
-        
+    
             <div class="input-box">
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" name="password" required>
-                <label for="password">Password</label>
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" name="password" required>
+              <label for="password">Password</label>
             </div>
             <div class="remember-forget-pass">
               <label><input type="checkbox">I agree to the terms & conditions</label>
-              
             </div>
             <button type="submit" class="submit-btn">Sign In</button>
             <div class="login-register">
-              <p>Already have an Account?<a href="#" class="login-link">Login</a></p>
+              <p>Already have an Account?<a href="login.php" class="login-link">Login</a></p>
             </div>
           </form>
         </div>
+    
     
       </section>
     </div>
@@ -348,83 +352,19 @@
     </section>
     <!-- Review Section -->
      <!-- Review Section -->
-<section class="reviews">
-  <style>
-    .reviews {
-      padding: 40px 20px;
-      background-color: #f9f9f9; /* Light background color */
-      text-align: center;
-    }
+    
+     <body>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </body>
+    
+    <div id="reviews-container"></div>
 
-    .reviews-title {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: red; /* Red color for the title */
-    }
+    <script>
+      $(document).ready(function() {
+        $('#reviews-container').load('reviews.php');
+      });
+    </script>
 
-    .reviews-description {
-      margin-bottom: 40px;
-      color: #666; /* Medium text color */
-    }
-
-    .reviews-grid {
-      display: flex;
-      justify-content: space-around; /* Space out the cards */
-      flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    }
-
-    .review-card {
-      background-color: #000000; /* White background for cards */
-      border: 2px solid rgb(222, 16, 16); /* Black border */
-      border-radius: 8px; /* Rounded corners */
-      padding: 20px;
-      margin: 10px;
-      width: 30%; /* Set width for cards */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-      transition: transform 0.2s; /* Animation for hover effect */
-    }
-
-    .review-card:hover {
-      transform: scale(1.05); /* Slightly enlarge on hover */
-    }
-
-    .reviewer-name {
-      font-weight: bold; /* Bold text for reviewer name */
-      margin-bottom: 10px;
-      color: rgb(231, 6, 6); /* Black color for reviewer name */
-    }
-
-    .review-text {
-      color: #efe5e5; /* Darker text for review */
-    }
-  </style>
-
-  <div class="container">
-    <h2 class="reviews-title">What Our Members Say</h2>
-    <p class="reviews-description">Join our community and see why our members love YR Fitness!</p>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <h5 class="reviewer-name">Ashiqur Rahman</h5>
-        <p class="review-text">"I had high hopes for YR Fitness, but my experience has been disappointing. The equipment is often broken or outdated, and the staff seems indifferent to member concerns. The classes are overcrowded, making it hard to get personal attention. I expected a supportive community, but it feels more like a place where no one cares. I won’t be renewing my membership."</p>
-      </div>
-      <div class="review-card">
-        <h5 class="reviewer-name">Abu Jafor</h5>
-        <p class="review-text">"I was really excited to join YR Fitness, but I quickly became frustrated. There simply aren't enough trainers available to assist members. During peak hours, it's nearly impossible to get help or guidance, and the few trainers that are around seem overwhelmed. I expected more personalized attention, especially as a beginner. The lack of trainers has made my experience less enjoyable, and I don't feel like I'm getting my money's worth."</p>
-      </div>
-      <div class="review-card">
-        <h5 class="reviewer-name">Rakibul Shifat</h5>
-        <p class="review-text">"I can't say enough good things about Meem, the female trainer at YR Fitness! She is incredibly knowledgeable and always takes the time to understand my fitness goals. Her training sessions are challenging yet enjoyable, and she provides personalized attention that makes a huge difference. Thanks to her guidance, I've seen significant improvements in my strength and confidence. If you're looking for the best training experience, I highly recommend working with Meem!"</p>
-      </div>
-    </div>
-  </div>
-</section>
-     
-
-
-
-
-
-   
 
     <footer class="footer" style="background-color: black; color: white; padding: 40px 20px;">
       <div class="footer-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
