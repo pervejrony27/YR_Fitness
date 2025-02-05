@@ -1,18 +1,23 @@
+<?php
+session_start();
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Contact Page">
-	<meta name="keywords" content="contact">
-	<meta name="author" content="Nikola Štefančić">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YR Fitness | Contact</title>
+  <meta name="description" content="News Page">
+	<meta name="keywords" content="news">
+	<meta name="author" content="Nikola Štefančić">
+  <title>YR Fitness| News</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <link rel="stylesheet" href="./styles/general.css">
   <link rel="stylesheet" href="./styles/header.css">
   <link rel="stylesheet" href="./styles/footer.css">
-  <link rel="stylesheet" href="./styles/contact.css">
+  <link rel="stylesheet" href="./styles/news.css">
   <link rel="stylesheet" href="./styles/user-sign.css">
   <link rel="stylesheet" href="./styles/animations.css">
 
@@ -27,8 +32,8 @@
 
     <nav class="navbar">
 
-      <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
-      <a href="index.html"><h1>YR<span class="logo-animate"> Fitness</span> </h1></a>
+      <a href="index.php"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
+      <a href="index.php"><h1>YR <span>Fitness</span></h1></a>
 
       <div class="navbar-toggle" id="mobile-menu">
 
@@ -40,22 +45,35 @@
 
       <div class="navbar-menu">
 
-        <a href="index.html" class="navbar-link">Home</a>
-        <a href="news.html" class="navbar-link">News</a>
-        <a href="services.html" class="navbar-link">Services</a>
-        <a href="group-programs.html" class="navbar-link ">Group Programs</a>
-        <a href="membership.html" class="navbar-link ">Memberships</a>
-        <a href="about-us.html" class="navbar-link">About Us</a>
-        <a href="contact.html" class="navbar-link underline">Contact</a>
+        <a href="index.php" class="navbar-link">Home</a>
+        <a href="news.php" class="navbar-link underline">News</a>
+        <a href="services.php" class="navbar-link">Services</a>
+        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="membership.php" class="navbar-link ">Memberships</a>
+        <a href="store.php" class="navbar-link">Store</a>
+        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="contact.php" class="navbar-link">Contact</a>
 
 
-        <button class="login-btn">
-          Login
-          <div class="tooltip">
-            <p class="margin">Don't Have an Account?</p>
-            <p>Sign Up</p>
-          </div>
-        </button>
+        <?php if ($username): ?>
+                <div class="user-dropdown">
+                    <button class="user-name-btn">
+                        <?php echo htmlspecialchars($username); ?>
+                        <div class="dropdown-content">
+                            <a href="dashboard.php">Dashboard</a>
+                            <a href="logout.php">Logout</a>
+                        </div>
+                    </button>
+                </div>
+            <?php else: ?>
+              <button class="login-btn">
+                Login
+                <div class="tooltip">
+                  <p class="margin">Don't Have an Account?</p>
+                  <p>You can Sign Up</p>
+                </div>
+              </button>
+            <?php endif; ?>
 
       </div>
 
@@ -72,27 +90,30 @@
 
     <div class="user-sign-flex">
       <section class="user-sign-in-container">
-
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close-circle"></ion-icon>
         </span>
-  
+    
         <div class="form-box login">
           <h2>Login</h2>
-          <form action="#" method="GET">
+          <!-- Update the form to use the POST method and point to login.php -->
+          <form action="login.php" method="POST">
     
             <div class="input-box">
               <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="email" name="email" required>
               <label for="email">Email</label>
             </div>
     
-    
             <div class="input-box">
               <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="password" name="password" required>
               <label for="password">Password</label>
             </div>
+    
             <div class="remember-forget-pass">
               <label><input type="checkbox">Remember Me</label>
               <a href="#" class="forgot-pass">Forgot Password?</a>
@@ -103,136 +124,85 @@
             </div>
           </form>
         </div>
-  
-  
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close"></ion-icon>
         </span>
-  
+    
         <div class="form-box register">
           <h2>Register</h2>
-          <form action="#" method="GET">
+          <form action="register.php" method="POST">
     
             <div class="input-box">
               <span class="icon"><ion-icon name="person"></ion-icon></span>
-              <input type="text" required>
+              <input type="text" name="username" required>
               <label for="text">Username</label>
             </div>
-  
+    
             <div class="input-box">
               <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
+              <input type="email" name="email" required>
               <label for="email">Email</label>
             </div>
     
             <div class="input-box">
               <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
+              <input type="password" name="password" required>
               <label for="password">Password</label>
             </div>
             <div class="remember-forget-pass">
               <label><input type="checkbox">I agree to the terms & conditions</label>
-              
             </div>
             <button type="submit" class="submit-btn">Sign In</button>
             <div class="login-register">
-              <p>Already have an Account?<a href="#" class="login-link">Login</a></p>
+              <p>Already have an Account?<a href="login.php" class="login-link">Login</a></p>
             </div>
           </form>
         </div>
     
+    
       </section>
     </div>
 
-    <div class="flex-container">
+    <section class="hero-background-container">
 
-      <div class="form-container flex-column">
+      <div class="news-title-wrapper flex-center">
 
-        <div class="title-wrapper">
-          <h4 class="topline">Contact</h4>
-          <h1 class="title">Need Our Help? Contact Us.</h1>
-        </div>
+        <h3 class="topline cursor-def animate-top">Latest</h3>
+        <h1 class="news-title cursor-def animate-top">News</h1>
 
-        <form action="#" method="GET" id="contact-form">
-          
-          <div class="form-control">
-            
-            <div class="wrapper">
-              <label for="name" id="name">
-                <input type="text" for="name" placeholder="Name *" aria-required="true" aria-invalid="false">
-              </label>
-              <i class="fa-solid fa-user text-center"></i>
-            </div>
-
-            <div class="wrapper">
-              <label for="email" id="email">
-                <input type="email" for="email" placeholder="Email *" aria-required="true" aria-invalid="false">
-              </label>
-              <i class="fa-solid fa-envelope text-center"></i>
-            </div>
-         </div>
-
-          <div class="form-control">
-            
-            <div class="wrapper">
-              <label for="phone" id="phone">
-                <input type="tel" for="phone" placeholder="Phone Number *" aria-required="true" aria-invalid="false">
-              </label>
-              <i class="fa-solid fa-phone text-center"></i>
-            </div>
-
-            <div class="wrapper">
-              <label for="subject" id="subject">
-                <input type="text" for="subject" placeholder="Subject *" aria-required="true" aria-invalid="false">
-              </label>
-              <i class="fa-solid fa-file-alt text-center"></i>
-            </div>
-
-          </div>
-
-         <div class="form-control">
-
-         </div>
-
-         <div class="form-control">
-
-          <div class="wrapper message-wrapper">
-            <label for="message" id="message">
-              <textarea name="message" id="message" cols="40" rows="10" class="message-box" placeholder="Message *"></textarea>
-            </label>
-            <i class="fa-solid fa-pencil-alt text-center pencil-icon"></i>
-          </div>
-
-         </div>
-
-          
-          <div>
-            <button class="submit-form" type="submit">Submit</button>
-          </div>
-
-        </form>
       </div>
 
-      <div class="info-container grid">
+      <div class="grid-container">
 
+        <article class="news-card-container">
 
-
+          <img src="./images/news-background.png" alt="news-img" class="news-img cursor">
+          <a href="./news-page-1.html"><p class="news-card-date cursor">November 31, 2024</p></a>
+          <a href="./news-page-1.html"><h2 class="news-card-heading">Please note that YR Fitness will be closed </h2></a>
+          <a href="./news-page-1.html"><i class="fa-solid fa-arrow-right arrow-icon"></i></a>
+          <a href="./news-page-1.html"><p class="news-card-desc">Say goodbye to the usual gym experience! Our facility will be temporarily closed for cleaning, ensuring a fresh and pristine environment for your next workout.</p></a>
     
+        </article>
+        
+
+        <article class="news-card-container">
+
+          <img src="./images/news-background-1.jpg" alt="news-img" class="news-img cursor">
+          <a href="./news-page-2.html"><p class="news-card-date cursor">July 25, 2024</p></a>
+          <a href="./news-page-2.html"><h2 class="news-card-heading">Empower Your Fitness Journey</h2></a>
+          <a href="./news-page-2.html"><i class="fa-solid fa-arrow-right arrow-icon"></i></a>
+          <a href="./news-page-2.html"><p class="news-card-desc">Experience a transformative fitness journey with our new female trainer. Her innovative approach and personalized guidance elevate your workouts, helping you achieve your goals with confidence and support!</p></a>
+  
+        </article>
+
+      
+
+      </div>
+
+    </section>
+
   </main>
-
-
-  <div class="google-maps-container">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12102.543420481014!2d91.1771!3d23.4641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd1b1e1e1e1e1%3A0x1234567890abcdef!2sKhandirpar%2C%20Cumilla%2C%20Bangladesh!5e0!3m2!1sen!2shr!4v1704285757494!5m2!1sen!2shr" 
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade" 
-        class="google-maps">
-    </iframe>
-</div>
 
     <!-- Footer Section -->
 
@@ -279,6 +249,7 @@
 
 <script defer src="./js/animation.js"></script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
@@ -294,5 +265,7 @@
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/EasePack.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/CustomEase.min.js"></script>
+
+
 
 </html>

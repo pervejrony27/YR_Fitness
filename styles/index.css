@@ -1,18 +1,15 @@
-
-
 /* Hero Section */
 
 .hero {
-  background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.4)), url('../images/hero-background.jpg');
-  height: 100vh;
   width: 100%;
+  min-height: 100vh;
+  padding-top: 70px; /* Match navbar height */
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/hero-background.jpg');
   background-position: center;
   background-size: cover;
-
-  padding: 0.5rem calc((100vw - 1200px) / 2);
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
@@ -579,6 +576,3 @@ form {
     min-width: 200px;
   }
 }
-
-
-

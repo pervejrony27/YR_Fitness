@@ -1,3 +1,8 @@
+<?php
+session_start();
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +35,8 @@
 
     <nav class="navbar">
 
-      <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
-      <a href="index.html"><h1>YR<span class="logo-animate"> Fitness</span></h1></a>
+      <a href="index.php"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
+      <a href="index.php"><h1>YR<span class="logo-animate"> Fitness</span></h1></a>
 
       <div class="navbar-toggle" id="mobile-menu">
 
@@ -43,22 +48,35 @@
 
       <div class="navbar-menu">
 
-        <a href="index.html" class="navbar-link">Home</a>
-        <a href="news.html" class="navbar-link">News</a>
-        <a href="services.html" class="navbar-link">Services</a>
-        <a href="group-programs.html" class="navbar-link ">Group Programs</a>
-        <a href="membership.html" class="navbar-link ">Memberships</a>
-        <a href="about-us.html" class="navbar-link underline">About Us</a>
-        <a href="contact.html" class="navbar-link ">Contact</a>
+      <a href="index.php" class="navbar-link">Home</a>
+        <a href="news.php" class="navbar-link">News</a>
+        <a href="services.php" class="navbar-link">Services</a>
+        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="membership.php" class="navbar-link ">Memberships</a>
+        <a href="store.php" class="navbar-link">Store</a>
+        <a href="about-us.php" class="navbar-link underline">About Us</a>
+        <a href="contact.php" class="navbar-link">Contact</a>
 
 
-        <button class="login-btn">
-          Login
-          <div class="tooltip">
-            <p class="margin">Don't Have an Account?</p>
-            <p>Sign Up</p>
-          </div>
-        </button>
+        <?php if ($username): ?>
+                <div class="user-dropdown">
+                    <button class="user-name-btn">
+                        <?php echo htmlspecialchars($username); ?>
+                        <div class="dropdown-content">
+                            <a href="dashboard.php">Dashboard</a>
+                            <a href="logout.php">Logout</a>
+                        </div>
+                    </button>
+                </div>
+            <?php else: ?>
+              <button class="login-btn">
+                Login
+                <div class="tooltip">
+                  <p class="margin">Don't Have an Account?</p>
+                  <p>You can Sign Up</p>
+                </div>
+              </button>
+            <?php endif; ?>
 
       </div>
 
@@ -71,76 +89,78 @@
 
       <!-- User Login || Sign In  -->
 
-    <div class="user-sign-flex">
-      <section class="user-sign-in-container">
-
-        <span class="icon-close" id="closeButton">
-          <ion-icon name="close-circle"></ion-icon>
-        </span>
-  
-        <div class="form-box login">
-          <h2>Login</h2>
-          <form action="#" method="GET">
-    
-            <div class="input-box">
-              <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
-              <label for="email">Email</label>
-            </div>
-    
-    
-            <div class="input-box">
-              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
-              <label for="password">Password</label>
-            </div>
-            <div class="remember-forget-pass">
-              <label><input type="checkbox">Remember Me</label>
-              <a href="#" class="forgot-pass">Forgot Password?</a>
-            </div>
-            <button type="submit" class="submit-btn">Login</button>
-            <div class="login-register">
-              <p>Don't have an Account?<a href="#" class="register-link">Register</a></p>
-            </div>
-          </form>
-        </div>
-  
-  
-        <span class="icon-close" id="closeButton">
-          <ion-icon name="close"></ion-icon>
-        </span>
-  
-        <div class="form-box register">
-          <h2>Register</h2>
-          <form action="#" method="GET">
-    
-            <div class="input-box">
-              <span class="icon"><ion-icon name="person"></ion-icon></span>
-              <input type="text" required>
-              <label for="text">Username</label>
-            </div>
-  
-            <div class="input-box">
-              <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
-              <label for="email">Email</label>
-            </div>
-    
-            <div class="input-box">
-              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
-              <label for="password">Password</label>
-            </div>
-            <div class="remember-forget-pass">
-              <label><input type="checkbox">I agree to the terms & conditions</label>
-              
-            </div>
-            <button type="submit" class="submit-btn">Sign In</button>
-            <div class="login-register">
-              <p>Already have an Account?<a href="#" class="login-link">Login</a></p>
-            </div>
-          </form>
-        </div>
+      <div class="user-sign-flex">
+        <section class="user-sign-in-container">
+      
+          <span class="icon-close" id="closeButton">
+            <ion-icon name="close-circle"></ion-icon>
+          </span>
+      
+          <div class="form-box login">
+            <h2>Login</h2>
+            <!-- Update the form to use the POST method and point to login.php -->
+            <form action="login.php" method="POST">
+      
+              <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <!-- Add a name attribute to match the PHP script -->
+                <input type="email" name="email" required>
+                <label for="email">Email</label>
+              </div>
+      
+              <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <!-- Add a name attribute to match the PHP script -->
+                <input type="password" name="password" required>
+                <label for="password">Password</label>
+              </div>
+      
+              <div class="remember-forget-pass">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+              </div>
+              <button type="submit" class="submit-btn">Login</button>
+              <div class="login-register">
+                <p>Don't have an Account?<a href="#" class="register-link">Register</a></p>
+              </div>
+            </form>
+          </div>
+      
+          <span class="icon-close" id="closeButton">
+            <ion-icon name="close"></ion-icon>
+          </span>
+      
+          <div class="form-box register">
+            <h2>Register</h2>
+            <form action="register.php" method="POST">
+      
+              <div class="input-box">
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                <input type="text" name="username" required>
+                <label for="text">Username</label>
+              </div>
+      
+              <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" name="email" required>
+                <label for="email">Email</label>
+              </div>
+      
+              <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" name="password" required>
+                <label for="password">Password</label>
+              </div>
+              <div class="remember-forget-pass">
+                <label><input type="checkbox">I agree to the terms & conditions</label>
+              </div>
+              <button type="submit" class="submit-btn">Sign In</button>
+              <div class="login-register">
+                <p>Already have an Account?<a href="login.php" class="login-link">Login</a></p>
+              </div>
+            </form>
+          </div>
+      
     
       </section>
     </div>

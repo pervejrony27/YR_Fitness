@@ -1,18 +1,23 @@
+<?php
+session_start();
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Services Page">
-	<meta name="keywords" content="services">
+  <meta name="description" content="Contact Page">
+	<meta name="keywords" content="contact">
 	<meta name="author" content="Nikola Štefančić">
-  <title>YR Fitness | Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YR Fitness | Contact</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <link rel="stylesheet" href="./styles/general.css">
   <link rel="stylesheet" href="./styles/header.css">
   <link rel="stylesheet" href="./styles/footer.css">
-  <link rel="stylesheet" href="./styles/services.css">
+  <link rel="stylesheet" href="./styles/contact.css">
   <link rel="stylesheet" href="./styles/user-sign.css">
   <link rel="stylesheet" href="./styles/animations.css">
 
@@ -27,8 +32,8 @@
 
     <nav class="navbar">
 
-      <a href="index.html"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
-      <a href="index.html"><h1>YR<span class="logo-animate">Fitness</span></h1></a>
+      <a href="index.php"><img src="./logos/sparta-logo-red.png" alt="envizion-logo" class="navbar-logo logo-animate"></a>
+      <a href="index.php"><h1>YR<span class="logo-animate"> Fitness</span> </h1></a>
 
       <div class="navbar-toggle" id="mobile-menu">
 
@@ -40,22 +45,35 @@
 
       <div class="navbar-menu">
 
-        <a href="index.html" class="navbar-link">Home</a>
-        <a href="news.html" class="navbar-link">News</a>
-        <a href="services.html" class="navbar-link underline">Services</a>
-        <a href="group-programs.html" class="navbar-link ">Group Programs</a>
-        <a href="membership.html" class="navbar-link ">Memberships</a>
-        <a href="about-us.html" class="navbar-link">About Us</a>
-        <a href="contact.html" class="navbar-link">Contact</a>
+      <a href="index.php" class="navbar-link">Home</a>
+        <a href="news.php" class="navbar-link">News</a>
+        <a href="services.php" class="navbar-link">Services</a>
+        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="membership.php" class="navbar-link ">Memberships</a>
+        <a href="store.php" class="navbar-link">Store</a>
+        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="contact.php" class="navbar-link underline">Contact</a>
 
 
-        <button class="login-btn">
-          Login
-          <div class="tooltip">
-            <p class="margin">Don't Have an Account?</p>
-            <p>Sign Up</p>
-          </div>
-        </button>
+        <?php if ($username): ?>
+                <div class="user-dropdown">
+                    <button class="user-name-btn">
+                        <?php echo htmlspecialchars($username); ?>
+                        <div class="dropdown-content">
+                            <a href="dashboard.php">Dashboard</a>
+                            <a href="logout.php">Logout</a>
+                        </div>
+                    </button>
+                </div>
+            <?php else: ?>
+              <button class="login-btn">
+                Login
+                <div class="tooltip">
+                  <p class="margin">Don't Have an Account?</p>
+                  <p>You can Sign Up</p>
+                </div>
+              </button>
+            <?php endif; ?>
 
       </div>
 
@@ -72,27 +90,30 @@
 
     <div class="user-sign-flex">
       <section class="user-sign-in-container">
-
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close-circle"></ion-icon>
         </span>
-  
+    
         <div class="form-box login">
           <h2>Login</h2>
-          <form action="#" method="GET">
+          <!-- Update the form to use the POST method and point to login.php -->
+          <form action="login.php" method="POST">
     
             <div class="input-box">
               <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="email" name="email" required>
               <label for="email">Email</label>
             </div>
     
-    
             <div class="input-box">
               <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="password" name="password" required>
               <label for="password">Password</label>
             </div>
+    
             <div class="remember-forget-pass">
               <label><input type="checkbox">Remember Me</label>
               <a href="#" class="forgot-pass">Forgot Password?</a>
@@ -103,150 +124,135 @@
             </div>
           </form>
         </div>
-  
-  
+    
         <span class="icon-close" id="closeButton">
           <ion-icon name="close"></ion-icon>
         </span>
-  
+    
         <div class="form-box register">
           <h2>Register</h2>
-          <form action="#" method="GET">
+          <form action="register.php" method="POST">
     
             <div class="input-box">
               <span class="icon"><ion-icon name="person"></ion-icon></span>
-              <input type="text" required>
+              <input type="text" name="username" required>
               <label for="text">Username</label>
             </div>
-  
+    
             <div class="input-box">
               <span class="icon"><ion-icon name="mail"></ion-icon></span>
-              <input type="email" required>
+              <input type="email" name="email" required>
               <label for="email">Email</label>
             </div>
     
             <div class="input-box">
               <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-              <input type="password" required>
+              <input type="password" name="password" required>
               <label for="password">Password</label>
             </div>
             <div class="remember-forget-pass">
               <label><input type="checkbox">I agree to the terms & conditions</label>
-              
             </div>
             <button type="submit" class="submit-btn">Sign In</button>
             <div class="login-register">
-              <p>Already have an Account?<a href="#" class="login-link">Login</a></p>
+              <p>Already have an Account?<a href="login.php" class="login-link">Login</a></p>
             </div>
           </form>
         </div>
     
+    
       </section>
     </div>
 
-    <section class="hero-background-container">
+    <div class="flex-container">
 
-      <div class="services-title-wrapper flex">
+      <div class="form-container flex-column">
 
-        <h3 class="topline cursor-def animate-title-top">All Services</h3>
-        <h1 class="services-heading cursor-def animate-title-top">What We Offer ?</h1>
+        <div class="title-wrapper">
+          <h4 class="topline">Contact</h4>
+          <h1 class="title">Need Our Help? Contact Us.</h1>
+        </div>
 
+        <form action="#" method="GET" id="contact-form">
+          
+          <div class="form-control">
+            
+            <div class="wrapper">
+              <label for="name" id="name">
+                <input type="text" for="name" placeholder="Name *" aria-required="true" aria-invalid="false">
+              </label>
+              <i class="fa-solid fa-user text-center"></i>
+            </div>
+
+            <div class="wrapper">
+              <label for="email" id="email">
+                <input type="email" for="email" placeholder="Email *" aria-required="true" aria-invalid="false">
+              </label>
+              <i class="fa-solid fa-envelope text-center"></i>
+            </div>
+         </div>
+
+          <div class="form-control">
+            
+            <div class="wrapper">
+              <label for="phone" id="phone">
+                <input type="tel" for="phone" placeholder="Phone Number *" aria-required="true" aria-invalid="false">
+              </label>
+              <i class="fa-solid fa-phone text-center"></i>
+            </div>
+
+            <div class="wrapper">
+              <label for="subject" id="subject">
+                <input type="text" for="subject" placeholder="Subject *" aria-required="true" aria-invalid="false">
+              </label>
+              <i class="fa-solid fa-file-alt text-center"></i>
+            </div>
+
+          </div>
+
+         <div class="form-control">
+
+         </div>
+
+         <div class="form-control">
+
+          <div class="wrapper message-wrapper">
+            <label for="message" id="message">
+              <textarea name="message" id="message" cols="40" rows="10" class="message-box" placeholder="Message *"></textarea>
+            </label>
+            <i class="fa-solid fa-pencil-alt text-center pencil-icon"></i>
+          </div>
+
+         </div>
+
+          
+          <div>
+            <button class="submit-form" type="submit">Submit</button>
+          </div>
+
+        </form>
       </div>
 
-      <div class="services-card-container">
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-clock services-icon"></i>
-            <h3 class="services-title text-uppercase">24/7 Access</h3>
-          </div>
-          <p class="services-desc">Unlock the convenience of round the clock fitness with our 24/7 access feature, providing members the flexibility to work out on their schedule, anytime, day or night.</p>
-        </div>
-
-        
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-user-group services-icon"></i>
-            <h3 class="services-title text-uppercase">Personal Training Sessions</h3>
-          </div>
-          <p class="services-desc">Experience personalized fitness guidance and accelerated results with our one-on-one personal training sessions, tailored to your unique goals and abilities.</p>
-        </div>
+      <div class="info-container grid">
 
 
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-hot-tub-person services-icon"></i>
-            <h3 class="services-title text-uppercase">Steam Room and Sauna</h3>
-          </div>
-          <p class="services-desc">Indulge in relaxation and wellness with our steam room and sauna facilities, offering a tranquil retreat to rejuvenate both body and mind.</p>
-        </div>
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-people-group services-icon"></i>
-            <h3 class="services-title text-uppercase">Group Training Sessions</h3>
-          </div>
-          <p class="services-desc">Fuel your motivation with invigorating group training sessions, where camaraderie and expert guidance combine for dynamic workouts that inspire and elevate your fitness journey.</p>
-        </div>
 
-
-        
-
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-table-tennis-paddle-ball services-icon"></i>
-            <h3 class="services-title text-uppercase">Table-Tennis Playground</h3>
-          </div>
-          <p class="services-desc">Experience the fast-paced thrill of table tennis on our dedicated courts, where skill-building, friendly matches, and a lively atmosphere create the perfect setting for both casual play and competitive excitement.</p>
-        </div>
-
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-dumbbell services-icon"></i>
-            <h3 class="services-title text-uppercase">Top of the line Equipment</h3>
-          </div>
-          <p class="services-desc">Unleash your potential with the best in fitness with our top tier equipment that provides the ultimate platform for achieving your wellness goals with precision and excellence.</p>
-        </div>
-
-
-        
-
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-people-arrows services-icon"></i>
-            <h3 class="services-title text-uppercase">Refer-a-Friend Bonus</h3>
-          </div>
-          <p class="services-desc">Refer a friend, and both of you receive a free personal training session.</p>
-        </div>
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-graduation-cap services-icon"></i>
-            <h3 class="services-title text-uppercase">Student Bonus</h3>
-          </div>
-          <p class="services-desc">Special 10% off on all membership types for first 3 months for students with valid ID</p>
-        </div>
-
-
-        <div class="services-container">
-          <div>
-            <i class="fa-solid fa-shield-halved services-icon"></i>
-            <h3 class="services-title text-uppercase">Weekend Warrior Pass</h3>
-          </div>
-          <p class="services-desc">Unlimited access to the gym on weekends at a reduced rate.</p>
-        </div>
-
-        
-
-        
-
-      </div>
-
-    </section>
-
+    
   </main>
+
+
+  <div class="google-maps-container">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12102.543420481014!2d91.1771!3d23.4641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd1b1e1e1e1e1%3A0x1234567890abcdef!2sKhandirpar%2C%20Cumilla%2C%20Bangladesh!5e0!3m2!1sen!2shr!4v1704285757494!5m2!1sen!2shr" 
+        width="600" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade" 
+        class="google-maps">
+    </iframe>
+</div>
 
     <!-- Footer Section -->
 
@@ -280,6 +286,9 @@
   <div class="copyright">
     <p>Designed And Developed By YR Group </p>
   </div>
+
+</body>
+
 
 <script src="./js/mobile-menu.js"></script>
 
