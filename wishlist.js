@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".remove-wishlist-btn").forEach(button => {
         button.addEventListener("click", function() {

@@ -11,12 +11,19 @@ if (!isset($_SESSION['username'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_SESSION['username'];  // Get the username from session
     $review = trim($_POST['review']);   // Get the review text from the POST request
+    $rating = isset($_POST['rating']) ? (int)$_POST['rating'] : 0;  // Get the rating value
 
-    // Check if the review is not empty
-    if (!empty($review)) {
+    // Check if the review is not empty and rating is valid
+    if (!empty($review) && $rating > 0 && $rating <= 5) {
         // Prepare SQL query to insert the review into the database
-        $stmt = $conn->prepare("INSERT INTO reviews_user (username, review, created_at) VALUES (?, ?, NOW())");
-        $stmt->bind_param("ss", $username, $review);
+        $stmt = $conn->prepare("INSERT INTO reviews (name, review_text, rating, created_at) VALUES (?, ?, ?, NOW())");
+
+        // Check if prepare() was successful
+        if ($stmt === false) {
+            die("Error preparing the statement: " . $conn->error);
+        }
+
+        $stmt->bind_param("ssi", $username, $review, $rating);
 
         // Execute the query
         if ($stmt->execute()) {
@@ -31,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Close the prepared statement
         $stmt->close();
     } else {
-        echo "<p>Review cannot be empty.</p>";
+        echo "<p>Please enter a valid review and select a rating.</p>";
     }
 }
 ?>
@@ -51,9 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: 0;
         }
         .container {
-            max-width: 600px;
-            margin: 80px;
-            width: 100%;
+            width: 80%;
+            margin: 80px auto;
             background: white;
             padding: 20px;
             border-radius: 8px;
@@ -67,14 +73,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             flex-direction: column;
         }
-        textarea {
+        textarea, select {
             width: 100%;
-            height: 100px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            resize: none;
             margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 200px;
+            resize: none;
         }
         button {
             background: #28a745;
@@ -96,8 +105,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Review Form -->
     <div class="container">
         <h2>Submit Your Review</h2>
-        <form action="review.php" method="POST">
+        <form action="" method="POST">
             <textarea name="review" required placeholder="Write your review here..."></textarea>
+            
+            <!-- Dropdown for rating -->
+            <label for="rating">Rating:</label>
+            <select name="rating" required>
+                <option value="">Select Rating</option>
+                <option value="1">⭐ 1 - Poor</option>
+                <option value="2">⭐⭐ 2 - Fair</option>
+                <option value="3">⭐⭐⭐ 3 - Good</option>
+                <option value="4">⭐⭐⭐⭐ 4 - Very Good</option>
+                <option value="5">⭐⭐⭐⭐⭐ 5 - Excellent</option>
+            </select>
+
             <button type="submit">Submit Review</button>
         </form>
     </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="description" content="Services Page">
 	<meta name="keywords" content="services">
 	<meta name="author" content="Nikola Štefančić">
-  <title>YR Fitness | Services</title>
+  <title>YR Fitness</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <link rel="stylesheet" href="./styles/general.css">
@@ -66,9 +67,10 @@
             <li><a href="dashboard.php" class="active">Dashboard</a></li>
             <li><a href="profile.php">Manage Profile</a></li>
             <li><a href="purchase_history.php">Purchase History</a></li>
-            <li><a href="wishlist.php">Wishlist</a></li>
+            <li><a href="wishlist.php">Cart</a></li>
             <li><a href="CheckOut.php">CheckOut</a></li>
             <li><a href="add_review.php">Add Review</a></li>
+            <li><a href="addproduct.php">Add Product</a></li>
             <li><a href="logout.php">Log Out</a></li>
         </ul>
     </nav>

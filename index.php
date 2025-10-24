@@ -135,10 +135,10 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
         <a href="index.php" class="navbar-link underline">Home</a>
         <a href="news.php" class="navbar-link">News</a>
         <a href="services.php" class="navbar-link">Services</a>
-        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="group-programs.php" class="navbar-link ">GroupPrograms</a>
         <a href="membership.php" class="navbar-link ">Memberships</a>
         <a href="store.php" class="navbar-link">Store</a>
-        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="about-us.php" class="navbar-link">AboutUs</a>
         <a href="contact.php" class="navbar-link">Contact</a>
             <?php if ($username): ?>
                 <div class="user-dropdown">
@@ -252,7 +252,7 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
         <h1 class="hero-title-animate">Focus in <span class="delay-span-animate">Mind</span>,Power in  <span class="delay-span-animate">Motion</span></h1>
         <h1 class="hero-title-animate-2">Stronger Every Day, Together</h1>
         <p class="hero-animate-p">Join the Movement!</p>
-        <a href="./membership.html" class="get-started-btn gsap-animate-btn">Get Started</a>
+        <a href="./membership.php" class="get-started-btn gsap-animate-btn">Get Started</a>
 
       </div>
 
@@ -353,7 +353,11 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
 
           </div>
 
-          <a href="./membership.html" class="get-started-btn membership-btn">Sign Up</a>
+          <?php if ($username): ?>
+            <a href="./membership.php" class="get-started-btn membership-btn">BUY NOW</a>
+          <?php else: ?>
+            <button class="login-btn get-started-btn membership-btn">SIGN UP</button>
+          <?php endif; ?>
           
         </div>
 
@@ -378,7 +382,11 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
 
           </div>
 
-          <a href="./membership.html" class="get-started-btn membership-btn">Sign Up</a>
+          <?php if ($username): ?>
+            <a href="./membership.php" class="get-started-btn membership-btn">BUY NOW</a>
+          <?php else: ?>
+            <button class="login-btn get-started-btn membership-btn">SIGN UP</button>
+          <?php endif; ?>
 
         </div>
 
@@ -397,7 +405,11 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
 
           </div>
 
-          <a href="./membership.html" class="get-started-btn membership-btn">Sign Up</a>
+          <?php if ($username): ?>
+            <a href="./membership.php" class="get-started-btn membership-btn">BUY NOW</a>
+          <?php else: ?>
+            <button class="login-btn get-started-btn membership-btn">SIGN UP</button>
+          <?php endif; ?>
 
         </div>
       </div>
@@ -422,13 +434,13 @@ $username = isset($_GET['username']) ? htmlspecialchars($_GET['username']) : (is
 
         <div class="team-card animate-team">
           <p>Meem</p>
-          <img src="./images/trainer-2.jpg" alt="trainer-2" class="team-img" title="Lucia | Personal Trainer">
+          <img src="./images/trainer-5.jpg" alt="trainer-2" class="team-img" title="Lucia | Personal Trainer">
         </div>
         
 
         <div class="team-card animate-team">
-          <p>Steve</p>
-          <img src="./images/trainer-3.jpg" alt="trainer-3" class="team-img" title="Michael | Personal Trainer">
+          <p>Tamim</p>
+          <img src="./images/trainer-4.png" alt="trainer-3" class="team-img" title="Michael | Personal Trainer">
         </div>
 
         

@@ -48,10 +48,10 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
       <a href="index.php" class="navbar-link">Home</a>
         <a href="news.php" class="navbar-link">News</a>
         <a href="services.php" class="navbar-link">Services</a>
-        <a href="group-programs.php" class="navbar-link underline">Group Programs</a>
+        <a href="group-programs.php" class="navbar-link underline">GroupPrograms</a>
         <a href="membership.php" class="navbar-link ">Memberships</a>
         <a href="store.php" class="navbar-link">Store</a>
-        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="about-us.php" class="navbar-link">AboutUs</a>
         <a href="contact.php" class="navbar-link">Contact</a>
 
 

@@ -48,10 +48,10 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
       <a href="index.php" class="navbar-link">Home</a>
         <a href="news.php" class="navbar-link">News</a>
         <a href="services.php" class="navbar-link">Services</a>
-        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="group-programs.php" class="navbar-link ">GroupPrograms</a>
         <a href="membership.php" class="navbar-link underline">Memberships</a>
         <a href="store.php" class="navbar-link">Store</a>
-        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="about-us.php" class="navbar-link">AboutUs</a>
         <a href="contact.php" class="navbar-link">Contact</a>
 
 
@@ -192,7 +192,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
             </div>
           </div>
   
-          <a href="" class="sign-btn">Buy Online</a>
+          <<a href="purchase.php?plan=Silver&price=800" class="sign-btn">Buy Online</a>
         </div>
 
 
@@ -202,7 +202,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
             <h1>Gold</h1>
             <i class="fa-solid fa-medal card-icon"></i>
           </div>
-  
+              
           <div class="card-perks">
             <div class="perk-price">
               <p><span class="price-style">1200</span</i></span>Taka/month</p>
@@ -214,7 +214,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
             </div>
           </div>
   
-          <a href="" class="sign-btn">Buy Online</a>
+          <a href="purchase.php?plan=Gold&price=1200" class="sign-btn">Buy Online</a>
         </div>
 
       </div>
@@ -238,7 +238,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
             </div>
           </div>
   
-          <a href="" class="sign-btn">Buy Online</a>
+          <a href="purchase.php?plan=Diamond&price=2000" class="sign-btn">Buy Online</a>
         </div>
 
       </div>

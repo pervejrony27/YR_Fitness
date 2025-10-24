@@ -110,10 +110,10 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
       <a href="index.php" class="navbar-link">Home</a>
         <a href="news.php" class="navbar-link">News</a>
         <a href="services.php" class="navbar-link">Services</a>
-        <a href="group-programs.php" class="navbar-link ">Group Programs</a>
+        <a href="group-programs.php" class="navbar-link ">GroupPrograms</a>
         <a href="membership.php" class="navbar-link ">Memberships</a>
         <a href="store.php" class="navbar-link underline">Store</a>
-        <a href="about-us.php" class="navbar-link">About Us</a>
+        <a href="about-us.php" class="navbar-link">AboutUs</a>
         <a href="contact.php" class="navbar-link">Contact</a>
         <?php if ($username): ?>
                 <div class="user-dropdown">
@@ -140,6 +140,82 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
   
   <!-- Main Content -->
   <main>
+        <!-- User Login || Sign In  -->
+
+        <div class="user-sign-flex">
+      <section class="user-sign-in-container">
+    
+        <span class="icon-close" id="closeButton">
+          <ion-icon name="close-circle"></ion-icon>
+        </span>
+    
+        <div class="form-box login">
+          <h2>Login</h2>
+          <!-- Update the form to use the POST method and point to login.php -->
+          <form action="login.php" method="POST">
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="email" name="email" required>
+              <label for="email">Email</label>
+            </div>
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <!-- Add a name attribute to match the PHP script -->
+              <input type="password" name="password" required>
+              <label for="password">Password</label>
+            </div>
+    
+            <div class="remember-forget-pass">
+              <label><input type="checkbox">Remember Me</label>
+              <a href="#" class="forgot-pass">Forgot Password?</a>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <div class="login-register">
+              <p>Don't have an Account?<a href="#" class="register-link">Register</a></p>
+            </div>
+          </form>
+        </div>
+    
+        <span class="icon-close" id="closeButton">
+          <ion-icon name="close"></ion-icon>
+        </span>
+    
+        <div class="form-box register">
+          <h2>Register</h2>
+          <form action="register.php" method="POST">
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="person"></ion-icon></span>
+              <input type="text" name="username" required>
+              <label for="text">Username</label>
+            </div>
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="mail"></ion-icon></span>
+              <input type="email" name="email" required>
+              <label for="email">Email</label>
+            </div>
+    
+            <div class="input-box">
+              <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+              <input type="password" name="password" required>
+              <label for="password">Password</label>
+            </div>
+            <div class="remember-forget-pass">
+              <label><input type="checkbox">I agree to the terms & conditions</label>
+            </div>
+            <button type="submit" class="submit-btn">Sign In</button>
+            <div class="login-register">
+              <p>Already have an Account?<a href="login.php" class="login-link">Login</a></p>
+            </div>
+          </form>
+        </div>
+    
+      </section>
+    </div>
     <section class="hero-background-container">
       <div class="card-container">
         <?php if ($result->num_rows > 0): ?>
@@ -148,7 +224,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
               <img src="product_images/<?php echo htmlspecialchars($row['img']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
               <h3><?php echo htmlspecialchars($row['title']); ?></h3>
               <p>৳<?php echo number_format($row['price'], 2); ?></p>
-              <button class="add-to-wishlist" data-product-id="<?php echo $row['id']; ?>">Add to Wishlist</button>
+              <button class="add-to-wishlist" data-product-id="<?php echo $row['id']; ?>">Add to Cart</button>
             </div>
           <?php endwhile; ?>
         <?php else: ?>
