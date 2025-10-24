@@ -7,10 +7,6 @@ Developed as part of the **Integrated Project course** at **BAIUST, Bangladesh**
 
 ---
 
-## 🔗 Live Demo
-*(If hosted online, replace the link below)*  
-[Live Demo](http://your-live-demo-link.com)
-
 ---
 
 ## 🏋️‍♂️ Project Overview
@@ -78,4 +74,4 @@ Admin can add new products to the store via this interface.
 ## 📦 Installation / Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/YR_Fitness.git
+   git clone https://github.com/pervejrony27/YR_Fitness.git
